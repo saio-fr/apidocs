@@ -1,12 +1,12 @@
-# SAIO Javascript Api
+# SAIO Javascript API
 
 ## Getting started
 
-The SAIO Javascript API you can easily add specific behaviors and customize your visitors' experience of the SAIO web application.
+With the SAIO Javascript API you can easily add specific behaviors and customize your visitors' experience of the SAIO web application.
 
 You can choose when and where your visitors can see the SAIO app, register visitor informations or trigger custom behaviours.
 
-You need the latest SAIO snippet code to use the Javascript api. You can find it under http://lily.saio.fr/config (you have to be logged in as an admin to get there)
+You need the latest SAIO snippet code to use the Javascript API. You can find it under http://lily.saio.fr/config (you have to be logged in as an admin to get there)
 
 For saio.configure API calls, place them just before `saio.load` in the snippet code:
 
@@ -17,7 +17,7 @@ saio.load('548053c9a18e2');
 
 ## Support
 
-If you have a problem with an API call, such as it not returning the correct value or not performing the intended action, email contact@saio.fr. (If you can provide a link or code we can test, it will be easier for us to test the functionality and help you in the best delays)
+If you have a problem with an API call, such as not returning the correct value or not performing the intended action, email contact@saio.fr. (If you can provide a link or code we can test, it will be easier for us to test the functionality and help you in the best delays)
 
 ## API Functions
 
@@ -101,7 +101,7 @@ saio.api('widget.onHide', function() {
 });
 ```
 
-#### On app open `saio.api('widget.onShow', function)`
+#### On app open `saio.api('box.onExpand', function)`
 
 Will call a given callback function whenever the app is openned:
 
@@ -112,7 +112,7 @@ saio.api('box.onExpand', function() {
 });
 ```
 
-#### On app close `saio.api('widget.onShrink', function)`
+#### On app close `saio.api('box.onShrink', function)`
 
 Will call a given callback function whenever the app is closed:
 
@@ -134,9 +134,9 @@ Note: the group id can be found by clicking on a group in the group configuratio
 
 #### Identify user `saio.config('identify', object)`
 
-If you have access to your end user's name and email on the page ( for example you have an authentification system and the user is logged in), you can use `identify` to pass user details into your saio account.
+If you have access to your end user's name and email on the page ( for example you have an authentification system and the user is logged in), you can use `identify` to pass user details into your SAIO account.
 
-This helps saio give you more detailed and contextual informations about your users, and allows your chat operator to access this information while chatting with an identified user.
+This helps SAIO give you more detailed and contextual informations about your users, and allows your chat operators to access this information while chatting with an identified user.
 
 Required fields: `email`, `name`
 
