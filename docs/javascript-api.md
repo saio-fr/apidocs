@@ -8,7 +8,7 @@ You can choose when and where your visitors can see the SAIO app, register visit
 
 You need the latest SAIO snippet code to use the Javascript API. You can find it under http://lily.saio.fr/config (you have to be logged in as an admin to get there)
 
-For saio.configure API calls, place them just before `saio.load` in the snippet code:
+For `saio.config` API calls, place them just before `saio.load` in the snippet code:
 
 ``` js
 // ⟶ insert saio.config calls here
@@ -17,7 +17,7 @@ saio.load('548053c9a18e2');
 
 ## Support
 
-If you have a problem with an API call, such as not returning the correct value or not performing the intended action, email contact@saio.fr. (If you can provide a link or code we can test, it will be easier for us to test the functionality and help you in the best delays)
+If you have a problem with an API call, such as an incorrect return value or an intended action not performing, email contact@saio.fr. (If you can provide a link with your code, it will be easier for us to test the functionality and help you in the best delays)
 
 ## API Functions
 
@@ -45,7 +45,7 @@ if (window.location.href.indexOf('home')) {
 
 #### Open the app `saio.api('box.expand')`
 
-Opens the app. This has the same result as clicking on the widget.
+Opens the app. This has the same effect as clicking on the widget.
 You can use it to create your own *click to open* button.
 
 The app will open in its starting state (the starting state depends on how you configured the app in the admin config section at http://lily.saio.fr/config) if it is openned for the first time. Otherwise it will take the state it was in before being closed.
@@ -56,7 +56,7 @@ example (assuming you use jQuery, but can also be done using vanilla javascript)
 <button class="saio-click-to-open"></button>
 
 <script>
-$('saio-click-to-open').on('click', function() {
+$('.saio-click-to-open').on('click', function() {
 	saio.api('box.expand');
 });
 </script>
@@ -73,7 +73,7 @@ Similarly you can make your own *click to close* button:
 <button class="saio-click-to-close"></button>
 
 <script>
-$('saio-click-to-close').on('click', function() {
+$('.saio-click-to-close').on('click', function() {
 	saio.api('box.shrink');
 });
 </script>
@@ -101,9 +101,9 @@ saio.api('widget.onHide', function() {
 });
 ```
 
-#### On app open `saio.api('box.onExpand', function)`
+#### On app expand `saio.api('box.onExpand', function)`
 
-Will call a given callback function whenever the app is openned:
+Will call a given callback function whenever the app expands:
 
 ``` js
 saio.api('box.onExpand', function() {
@@ -112,9 +112,9 @@ saio.api('box.onExpand', function() {
 });
 ```
 
-#### On app close `saio.api('box.onShrink', function)`
+#### On app shrink `saio.api('box.onShrink', function)`
 
-Will call a given callback function whenever the app is closed:
+Will call a given callback function whenever the app shrinks:
 
 ``` js
 saio.api('box.onShrink', function() {
@@ -127,7 +127,8 @@ saio.api('box.onShrink', function() {
 
 #### Set operator group `saio.config('chat.setOperatorGroup', string)`
 
-Sets the preferred operator group a user on this page should be affected to.
+Sets the preferred operator group for a chat conversation on this page. If an operator member of this group is available to chat, incomming visitor chats on this page will be affected to him.
+
 Pass the group id as a parametter.
 
 Note: the group id can be found by clicking on a group in the group configuration page at http://lily.saio.fr/users#groups (you have to be logged in as an admin to get there)
