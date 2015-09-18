@@ -15,6 +15,8 @@ For `saio.config` API calls, place them just before `saio.load` in the snippet c
 saio.load('548053c9a18e2');
 ```
 
+(You can also place `saio.api` calls before `saio.load`)
+
 ## Support
 
 If you have a problem with an API call, such as an incorrect return value or an intended action not performing, email contact@saio.fr. (If you can provide a link with your code, it will be easier for us to test the functionality and help you in the best delays)
@@ -125,15 +127,22 @@ saio.api('box.onShrink', function() {
 
 ### App configuration
 
-#### Set operator group `saio.config('chat.setOperatorGroup', string)`
+#### Set operator group `saio.config('chat.setOperatorGroup', table)`
 
-Sets the preferred operator group for a chat conversation on this page. If an operator member of this group is available to chat, incomming visitor chats on this page will be affected to him.
+Sets the preferred operator groups for a chat conversation on this page. If an operator member of one of these groups is available to chat, incomming visitor chats on this page will be affected to him.
 
-Pass the group id as a parametter.
+Pass the group ids in a table as parameter.
 
-Note: the group id can be found by clicking on a group in the group configuration page at http://lily.saio.fr/users#groups (you have to be logged in as an admin to get there)
+Note: the id for a group can be found by clicking on a group in the group configuration page at http://lily.saio.fr/users#groups (you have to be logged in as an admin to get there)
 
-#### Identify user `saio.config('identify', object)`
+Note: **Important**. `chat.setOperatorGroup` must be invoked before calling `saio.load` (see Getting started)
+
+example:
+``` js
+saio.config('setOperatorGroup', [groupId1, groupId2]);
+```
+
+#### Identify user `saio.api('identify', object)`
 
 If you have access to your end user's name and email on the page ( for example you have an authentification system and the user is logged in), you can use `identify` to pass user details into your SAIO account.
 
@@ -148,9 +157,11 @@ Supported fields:
 example:
 
 ``` js
-saio.config('identify', {
+saio.api('identify', {
 	name: 'John Doe',
 	email: 'john@doe.com',
 	externalId: '123456'
 });
 ```
+
+Note: `identify` can be called anywhere and at any time during the lifetime of the page.
