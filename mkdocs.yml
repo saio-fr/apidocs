@@ -1,13 +1,14 @@
 site_name: SAIO | Docs api
 site_description: Public documentation for the SAIO apps
 repo_url: https://github.com/saio-fr/apidocs
-site_favicon: favicon.ico
+site_favicon: favicon_saio.png
 site_url: http://docs.sequelizejs.com
 theme: readthedocs
 extra_css:
 - css/custom.css
 extra_javascript:
 - //cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js
+use_directory_urls: true
 pages:
 - Home: 'index.md'
 - Documentation:

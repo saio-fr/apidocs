@@ -46,6 +46,8 @@ if (window.location.href.indexOf('home')) {
 }
 ```
 
+---------------------------------------
+
 #### Open the app `saio.api('box.expand')`
 
 Opens the app. This has the same effect as clicking on the widget.
@@ -64,6 +66,7 @@ example (assuming you use jQuery, but can also be done using vanilla javascript)
     });
     </script>
 
+---------------------------------------
 
 #### Close the app `saio.api('box.shrink')`
 
@@ -80,6 +83,7 @@ Similarly you can make your own *click to close* button:
     });
     </script>
 
+---------------------------------------
 
 #### On widget show `saio.api('widget.onShow', function)`
 
@@ -92,6 +96,8 @@ saio.api('widget.onShow', function() {
 });
 ```
 
+---------------------------------------
+
 #### On widget hide `saio.api('widget.onHide', function)`
 
 Will call a given callback function whenever the widget is hidden:
@@ -103,6 +109,8 @@ saio.api('widget.onHide', function() {
 });
 ```
 
+---------------------------------------
+
 #### On app expand `saio.api('box.onExpand', function)`
 
 Will call a given callback function whenever the app expands:
@@ -113,6 +121,8 @@ saio.api('box.onExpand', function() {
   alert('the app was oppenned');
 });
 ```
+
+---------------------------------------
 
 #### On app shrink `saio.api('box.onShrink', function)`
 
@@ -142,6 +152,8 @@ example:
 ```
 saio.config('setOperatorGroup', [groupId1, groupId2]);
 ```
+
+---------------------------------------
 
 #### Identify user `saio.api('identify', object)`
 
