@@ -10,6 +10,6 @@ extra_javascript:
 - //cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js
 use_directory_urls: true
 pages:
-- Home: 'index.md'
+- Home: 'README.md'
 - Documentation:
   - 'Javascript API': 'javascript-api.md'
