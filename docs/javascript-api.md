@@ -154,7 +154,7 @@ saio.api('box.onShrink', function() {
 
 Sets the preferred operator groups for a chat conversation on this page. If an operator member of one of these groups is available to chat, incomming visitor chats on this page will be affected to him.
 
-Pass the group ids in a table as parameter.
+Pass the group ids in a table as parameter or a single group id as a string.
 
 Note: the id for a group can be found by clicking on a group in the group configuration page at http://lily.saio.fr/users#groups (you have to be logged in as an admin to get there)
 
@@ -163,7 +163,9 @@ Note: **Important**. `chat.setOperatorGroup` must be invoked before calling `sai
 example:
 
 ```
-saio.config('setOperatorGroup', [groupId1, groupId2]);
+saio.config('chat.setOperatorGroup', [groupId1, groupId2]);
+// or with a single group:
+saio.config('chat.setOperatorGroup', groupId);
 ```
 
 ---------------------------------------
