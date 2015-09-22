@@ -1,0 +1,15 @@
+site_name: SAIO | Docs api
+site_description: bla bla bla
+repo_url: https://github.com/saio-fr/apidocs
+site_favicon: favicon.ico
+site_url: http://docs.sequelizejs.com
+markdown_extensions: [gfm]
+theme: readthedocs
+extra_css:
+- css/custom.css
+extra_javascript:
+- //cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js
+pages:
+- Home: 'index.md'
+- Documentation:
+	- 'Getting Started': 'docs/getting-started.md'
