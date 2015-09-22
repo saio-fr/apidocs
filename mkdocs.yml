@@ -11,4 +11,4 @@ extra_javascript:
 pages:
 - Home: 'index.md'
 - Documentation:
-  - 'Getting Started': 'getting-started.md'
+  - 'Javascript API': 'javascript-api.md'
