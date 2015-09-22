@@ -170,11 +170,13 @@ saio.config('chat.setOperatorGroup', groupId);
 
 ---------------------------------------
 
-#### Identify user `saio.api('identify', object)`
+#### Identify user `saio.api('user.identify', object)`
 
 If you have access to your end user's name and email on the page ( for example you have an authentification system and the user is logged in), you can use `identify` to pass user details into your SAIO account.
 
 This helps SAIO give you more detailed and contextual informations about your users, and allows your chat operators to access this information while chatting with an identified user.
+
+We’ll store those user details internally, and carry them over the next time you call identify for that user. For example, when someone signs up for a newsletter but hasn’t yet created an account on your site, you can add his email address
 
 Required fields: `email`, `name`
 
@@ -185,10 +187,21 @@ Supported fields:
 example:
 
 ```
-saio.api('identify', {
+saio.api('user.identify', {
   name: 'John Doe',
   email: 'john@doe.com',
   externalId: '123456'
+});
+
+// Or, with a custom object:
+saio.api('user.identify', {
+  name: 'John Doe',
+  email: 'john@doe.com',
+  externalId: '123456',
+  custom: {
+    location: 'Nice',
+    lang: 'en'
+  }
 });
 ```
 
