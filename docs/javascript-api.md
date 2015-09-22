@@ -6,11 +6,12 @@ With the SAIO Javascript API you can easily add specific behaviors and customize
 
 You can choose when and where your visitors can see the SAIO app, register visitor informations or trigger custom behaviours.
 
-You need the latest SAIO snippet code to use the Javascript API. You can find it under http://lily.saio.fr/config (you have to be logged in as an admin to get there)
+You need the latest SAIO snippet code to use the Javascript API. You can find it under
+[the config section of the admin app](http://lily.saio.fr/config) (you have to be logged in as an admin to get there)
 
 For `saio.config` API calls, place them just before `saio.load` in the snippet code:
 
-``` js
+```
 // ⟶ insert saio.config calls here
 saio.load('548053c9a18e2');
 ```
@@ -38,10 +39,10 @@ You can invoke it before or after page load.
 
 example:
 
-``` js
+```
 // Hide the widget on the home page
 if (window.location.href.indexOf('home')) {
-	saio.api('widget.hide');
+  saio.api('widget.hide');
 }
 ```
 
@@ -54,15 +55,15 @@ The app will open in its starting state (the starting state depends on how you c
 
 example (assuming you use jQuery, but can also be done using vanilla javascript):
 
-``` html
-<button class="saio-click-to-open"></button>
 
-<script>
-$('.saio-click-to-open').on('click', function() {
-	saio.api('box.expand');
-});
-</script>
-```
+    <button class="saio-click-to-open"></button>
+
+    <script>
+    $('.saio-click-to-open').on('click', function() {
+      saio.api('box.expand');
+    });
+    </script>
+
 
 #### Close the app `saio.api('box.shrink')`
 
@@ -71,24 +72,23 @@ Closes the app. Will show the widget (the widget is the default clickable button
 Similarly you can make your own *click to close* button:
 
 
-``` html
-<button class="saio-click-to-close"></button>
+    <button class="saio-click-to-close"></button>
 
-<script>
-$('.saio-click-to-close').on('click', function() {
-	saio.api('box.shrink');
-});
-</script>
-```
+    <script>
+    $('.saio-click-to-close').on('click', function() {
+      saio.api('box.shrink');
+    });
+    </script>
+
 
 #### On widget show `saio.api('widget.onShow', function)`
 
 Will call a given callback function whenever the widget is shown:
 
-``` js
+```
 saio.api('widget.onShow', function() {
-	// your callback function
-	alert('the widget was shown');
+  // your callback function
+  alert('the widget was shown');
 });
 ```
 
@@ -96,10 +96,10 @@ saio.api('widget.onShow', function() {
 
 Will call a given callback function whenever the widget is hidden:
 
-``` js
+```
 saio.api('widget.onHide', function() {
-	// your callback function
-	alert('the widget was hidden');
+  // your callback function
+  alert('the widget was hidden');
 });
 ```
 
@@ -107,10 +107,10 @@ saio.api('widget.onHide', function() {
 
 Will call a given callback function whenever the app expands:
 
-``` js
+```
 saio.api('box.onExpand', function() {
-	// your callback function
-	alert('the app was oppenned');
+  // your callback function
+  alert('the app was oppenned');
 });
 ```
 
@@ -118,10 +118,10 @@ saio.api('box.onExpand', function() {
 
 Will call a given callback function whenever the app shrinks:
 
-``` js
+```
 saio.api('box.onShrink', function() {
-	// your callback function
-	alert('the app was closed');
+  // your callback function
+  alert('the app was closed');
 });
 ```
 
@@ -138,7 +138,8 @@ Note: the id for a group can be found by clicking on a group in the group config
 Note: **Important**. `chat.setOperatorGroup` must be invoked before calling `saio.load` (see Getting started)
 
 example:
-``` js
+
+```
 saio.config('setOperatorGroup', [groupId1, groupId2]);
 ```
 
@@ -156,12 +157,13 @@ Supported fields:
 
 example:
 
-``` js
+```
 saio.api('identify', {
-	name: 'John Doe',
-	email: 'john@doe.com',
-	externalId: '123456'
+  name: 'John Doe',
+  email: 'john@doe.com',
+  externalId: '123456'
 });
 ```
 
 Note: `identify` can be called anywhere and at any time during the lifetime of the page.
+
