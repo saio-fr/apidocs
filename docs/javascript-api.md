@@ -20,7 +20,7 @@ You need the latest SAIO snippet code to use the Javascript API (**Contact SAIO 
     saio.load('%PROJECT_KEY%');
 
     // Call saio api methods from here
-    // ex: saio.config('widget.show', false);
+    // ex: saio.api('widget.show', false);
 
 For `saio.config` API calls, place them just before `saio.load` in the snippet code:
 
