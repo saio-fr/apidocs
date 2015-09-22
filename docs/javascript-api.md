@@ -6,14 +6,27 @@ With the SAIO Javascript API you can easily add specific behaviors and customize
 
 You can choose when and where your visitors can see the SAIO app, register visitor informations or trigger custom behaviours.
 
-You need the latest SAIO snippet code to use the Javascript API. You can find it under
-[the config section of the admin app](http://lily.saio.fr/config) (you have to be logged in as an admin to get there)
+You need the latest SAIO snippet code to use the Javascript API (**Contact SAIO at contact@saio.fr to get your project key**):
+
+    !function(t){"use strict";var e=t.saio=t.saio||[];if(!e.initialize){if(e.invoked)return void(t.console&&console.error&&console.error("Saio snippet included twice."));
+    e.invoked=!0,e.methods=["config","api"],e.factory=function(t){return function(){var o=Array.prototype.slice.call(arguments);
+    return o.unshift(t),e.push(o),e}};for(var o=0;o<e.methods.length;o++){var r=e.methods[o];
+    e[r]=e.factory(r)}e.load=function(t){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=("https:"===document.location.protocol?"https://":"http://")+"saio.fr/app/widget/"+t;
+    var o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(e,o)},e.SNIPPET_VERSION="1.0.0"
+    }}(this);
+
+    // Load saio with your key, which will automatically
+    // load the tools you've enabled for your account.
+    saio.load('%PROJECT_KEY%');
+
+    // Call saio api methods from here
+    // ex: saio.config('widget.show', false);
 
 For `saio.config` API calls, place them just before `saio.load` in the snippet code:
 
 ```
 // ⟶ insert saio.config calls here
-saio.load('548053c9a18e2');
+saio.load('%PROJECT_KEY%');
 ```
 
 (You can also place `saio.api` calls before `saio.load`)
