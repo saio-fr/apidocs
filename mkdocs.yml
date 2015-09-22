@@ -3,7 +3,7 @@ site_description: bla bla bla
 repo_url: https://github.com/saio-fr/apidocs
 site_favicon: favicon.ico
 site_url: http://docs.sequelizejs.com
-markdown_extensions: [gfm]
+markdown_extensions: [md]
 theme: readthedocs
 extra_css:
 - css/custom.css
@@ -12,4 +12,4 @@ extra_javascript:
 pages:
 - Home: 'index.md'
 - Documentation:
-	- 'Getting Started': 'docs/getting-started.md'
+  - 'Getting Started': 'docs/getting-started.md'
