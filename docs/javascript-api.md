@@ -11,7 +11,7 @@ You need the latest SAIO snippet code to use the Javascript API (**Contact SAIO 
     !function(t){"use strict";var e=t.saio=t.saio||[];if(!e.initialize){if(e.invoked)return void(t.console&&console.error&&console.error("Saio snippet included twice."));
     e.invoked=!0,e.methods=["config","api"],e.factory=function(t){return function(){var o=Array.prototype.slice.call(arguments);
     return o.unshift(t),e.push(o),e}};for(var o=0;o<e.methods.length;o++){var r=e.methods[o];
-    e[r]=e.factory(r)}e.load=function(t){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=("https:"===document.location.protocol?"https://":"http://")+"saio.fr/app/widget/"+t;
+    e[r]=e.factory(r)}e.load=function(t){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=("https:"===document.location.protocol?"https://":"http://")+"saio.fr/app/loader/"+t;
     var o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(e,o)},e.SNIPPET_VERSION="1.0.0"
     }}(this);
 
