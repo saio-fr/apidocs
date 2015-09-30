@@ -207,3 +207,18 @@ saio.api('user.identify', {
 
 Note: `identify` can be called anywhere and at any time during the lifetime of the page.
 
+---------------------------------------
+
+#### Enable Attention Grabber `saio.config('widget.attentionGrabberEnabled', boolean)`
+
+Enable or disable the attention grabber. The attention grabber is the little popping dialog that help catch attention for the widget and give context before a visitor clicks the widget.
+
+Note:
+- The Attention Grabber is shown by default on every page where the widget is shown.
+- Reminder: If you want to use this method, you have to put the associated code **before** calling `saio.load` in the snippet
+
+example:
+
+```
+saio.config('widget.attentionGrabberEnabled', false);
+```
