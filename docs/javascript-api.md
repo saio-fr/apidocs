@@ -79,6 +79,29 @@ example (assuming you use jQuery, but can also be done using vanilla javascript)
     });
     </script>
 
+> Note: On devices with a small screen (most phones), we need to open the saio app in a separate window to provide an optimal experience to the user.
+
+> For that reason, as well as browser restriction on programmatically openned window/tab, the `box.expand` call will not have any effect on those devices.
+
+> If you want to create a click to open button that works on phones as well, you can do the following:
+
+
+    <!-- Working link on mobile devices -->
+    <a class="saio-click-to-open" href="http://lily.saio.fr/app/%PROJECT_KEY%" target="_blank">
+      Help link
+    </a>
+
+    <script>
+    // Large-enough screen detected
+    if (window.matchMedia("(min-device-width: 800px)").matches) {
+      $('.saio-click-to-open').on('click', function(ev) {
+        // Prevent the link to be followed. Open the app directly on my website instead
+        ev.preventDefault();
+        saio.api('box.expand');
+      });
+    }
+    </script>
+
 ---------------------------------------
 
 #### Close the app `saio.api('box.shrink')`
