@@ -245,3 +245,17 @@ example:
 ```
 saio.config('widget.attentionGrabberEnabled', false);
 ```
+
+---------------------------------------
+
+#### Position the Widget `saio.config('widget.position', string)`
+
+Set the widget's position to the bottom left or to the bottom right of the screen (default is right).
+
+- Reminder: If you want to use this method, you have to put the associated code **before** calling `saio.load` in the snippet
+
+example:
+
+```
+saio.config('widget.position', 'left');
+```
