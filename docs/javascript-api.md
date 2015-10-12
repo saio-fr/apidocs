@@ -204,8 +204,8 @@ We’ll store those user details internally, and carry them over the next time y
 Required fields: `email`
 
 Supported fields:
-- `firstName` (**string**): your user's first name
-- `lastName` (**string**): your user's last name
+- `firstname` (**string**): your user's first name
+- `lastname` (**string**): your user's last name
 - `externalId` (**string**): a unique Id for that user in your system
 - `custom`: (**object**) an object with custom properties you want to associate with that user (ex: `location`, `lang`)
 
@@ -213,16 +213,16 @@ example:
 
 ```
 saio.api('user.identify', {
-  firstName: 'John',
-  lastName: 'Doe',
+  firstname: 'John',
+  lastname: 'Doe',
   email: 'john@doe.com',
   externalId: '123456'
 });
 
 // Or, with a custom object:
 saio.api('user.identify', {
-  firstName: 'John',
-  lastName: 'Doe',
+  firstname: 'John',
+  lastname: 'Doe',
   email: 'john@doe.com',
   externalId: '123456',
   custom: {
