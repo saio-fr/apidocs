@@ -201,9 +201,11 @@ This helps SAIO give you more detailed and contextual informations about your us
 
 We’ll store those user details internally, and carry them over the next time you call identify for that user. For example, when someone signs up for a newsletter but hasn’t yet created an account on your site, you can add his email address
 
-Required fields: `email`, `name`
+Required fields: `email`
 
 Supported fields:
+- `firstName` (**string**): your user's first name
+- `lastName` (**string**): your user's last name
 - `externalId` (**string**): a unique Id for that user in your system
 - `custom`: (**object**) an object with custom properties you want to associate with that user (ex: `location`, `lang`)
 
@@ -211,14 +213,16 @@ example:
 
 ```
 saio.api('user.identify', {
-  name: 'John Doe',
+  firstName: 'John',
+  lastName: 'Doe',
   email: 'john@doe.com',
   externalId: '123456'
 });
 
 // Or, with a custom object:
 saio.api('user.identify', {
-  name: 'John Doe',
+  firstName: 'John',
+  lastName: 'Doe',
   email: 'john@doe.com',
   externalId: '123456',
   custom: {
