@@ -120,7 +120,7 @@ Similarly you can make your own *click to close* button:
 
 ---------------------------------------
 
-#### On widget show `saio.api('widget.onShow', function)`
+#### On widget show `saio.api('widget.onShow', callback {function})`
 
 Will call a given callback function whenever the widget is shown:
 
@@ -133,7 +133,7 @@ saio.api('widget.onShow', function() {
 
 ---------------------------------------
 
-#### On widget hide `saio.api('widget.onHide', function)`
+#### On widget hide `saio.api('widget.onHide', callback {function})`
 
 Will call a given callback function whenever the widget is hidden:
 
@@ -146,7 +146,7 @@ saio.api('widget.onHide', function() {
 
 ---------------------------------------
 
-#### On app expand `saio.api('box.onExpand', function)`
+#### On app expand `saio.api('box.onExpand', callback {function})`
 
 Will call a given callback function whenever the app expands:
 
@@ -159,7 +159,7 @@ saio.api('box.onExpand', function() {
 
 ---------------------------------------
 
-#### On app shrink `saio.api('box.onShrink', function)`
+#### On app shrink `saio.api('box.onShrink', callback {function})`
 
 Will call a given callback function whenever the app shrinks:
 
@@ -172,27 +172,28 @@ saio.api('box.onShrink', function() {
 
 ### App configuration
 
-#### Set operator group `saio.config('chat.setOperatorGroup', table)`
+#### Set operator group `saio.config('chat.setOperatorGroup', groupId {string}, shouldFallback {boolean})`
 
-Sets the preferred operator groups for a chat conversation on this page. If an operator member of one of these groups is available to chat, incomming visitor chats on this page will be affected to him.
+> `shouldFallback` defaults to `true`
 
-Pass the group ids in a table as parameter or a single group id as a string.
+Sets the preferred operator group for a chat conversation on this page. If an operator member of this groups is available to chat, incomming visitor chats on this page will be affected to him.
 
-Note: the id for a group can be found by clicking on a group in the group configuration page at http://lily.saio.fr/users#groups (you have to be logged in as an admin to get there)
+If `shouldFallback` is set to `false` and no operator member of the specified group is available, the chat will not be set as unavailable.
+If it is set to `true`, and no operator in the given group is available, conversation on this page will be affected to any other available operator.
+
+Note: the id for a group can be found by clicking on a group in the group configuration page at http://lily.saio.fr/users#groups (you have to be logged in as an admin to get there). It should be passed as a string.
 
 Note: **Important**. `chat.setOperatorGroup` must be invoked before calling `saio.load` (see Getting started)
 
 example:
 
 ```
-saio.config('chat.setOperatorGroup', [groupId1, groupId2]);
-// or with a single group:
-saio.config('chat.setOperatorGroup', groupId);
+saio.config('chat.setOperatorGroup', '8', true);
 ```
 
 ---------------------------------------
 
-#### Identify user `saio.api('user.identify', object)`
+#### Identify user `saio.api('user.identify', options {object})`
 
 If you have access to your end user's name and email on the page ( for example you have an authentification system and the user is logged in), you can use `identify` to pass user details into your SAIO account.
 
@@ -202,11 +203,11 @@ We’ll store those user details internally, and carry them over the next time y
 
 
 Supported fields:
-- `email` (**string**): your user's email address
-- `firstname` (**string**): your user's first name
-- `lastname` (**string**): your user's last name
-- `externalId` (**string**): a unique Id for that user in your system
-- `custom`: (**object**) an object with custom properties you want to associate with that user (ex: `location`, `lang`)
+- `email` {**string**}: your user's email address
+- `firstname` {**string**}: your user's first name
+- `lastname` {**string**}: your user's last name
+- `externalId` {**string**}: a unique Id for that user in your system
+- `custom`: {**object**} an object with custom properties you want to associate with that user (ex: `location`, `lang`)
 
 example:
 
@@ -235,7 +236,7 @@ Note: `identify` can be called anywhere and at any time during the lifetime of t
 
 ---------------------------------------
 
-#### Enable Attention Grabber `saio.config('widget.attentionGrabberEnabled', boolean)`
+#### Enable Attention Grabber `saio.config('widget.attentionGrabberEnabled', isEnabled {boolean})`
 
 Enable or disable the attention grabber. The attention grabber is the little popping dialog that help catch attention for the widget and give context before a visitor clicks the widget.
 
@@ -251,7 +252,7 @@ saio.config('widget.attentionGrabberEnabled', false);
 
 ---------------------------------------
 
-#### Position the Widget `saio.config('widget.position', string)`
+#### Position the Widget `saio.config('widget.position', position {string})`
 
 Set the widget's position to the bottom left or to the bottom right of the screen (default is right).
 
