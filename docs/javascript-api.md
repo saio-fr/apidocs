@@ -207,7 +207,7 @@ Supported fields:
 - `firstname` {**string**}: your user's first name
 - `lastname` {**string**}: your user's last name
 - `externalId` {**string**}: a unique Id for that user in your system
-- `customField`: {**object**} an object with custom properties you want to associate with that user (ex: `location`, `lang`)
+- `customFields`: {**object**} an object with custom properties you want to associate with that user (ex: `location`, `lang`)
 
 example:
 
@@ -225,7 +225,7 @@ saio.api('user.identify', {
   lastname: 'Doe',
   email: 'john@doe.com',
   externalId: '123456',
-  customField: {
+  customFields: {
     location: 'Nice',
     lang: 'en'
   }
