@@ -124,6 +124,8 @@ Similarly you can make your own *click to close* button:
 
 Will call a given callback function whenever the widget is shown:
 
+example:
+
 ```
 saio.api('widget.onShow', function() {
   // your callback function
@@ -136,6 +138,8 @@ saio.api('widget.onShow', function() {
 #### On widget hide `saio.api('widget.onHide', callback {function})`
 
 Will call a given callback function whenever the widget is hidden:
+
+example:
 
 ```
 saio.api('widget.onHide', function() {
@@ -150,6 +154,8 @@ saio.api('widget.onHide', function() {
 
 Will call a given callback function whenever the app expands:
 
+example:
+
 ```
 saio.api('box.onExpand', function() {
   // your callback function
@@ -163,11 +169,30 @@ saio.api('box.onExpand', function() {
 
 Will call a given callback function whenever the app shrinks:
 
+example:
+
 ```
 saio.api('box.onShrink', function() {
   // your callback function
   alert('the app was closed');
 });
+```
+
+---------------------------------------
+
+#### Live chat is available `saio.api('app.isChatAvailable')`
+
+Will return a boolean `true` or `false` if the chat is available for a visitor to use (live chat is active, and at least one operator is available to chat)
+
+example:
+
+```
+if (saio.api('app.isChatAvailable')) {
+  // If the chat is available, expand the app after 2 seconds
+  window.setTimeout(function() {
+    saio.api('box.expand');
+  }, 2000);
+}
 ```
 
 ### App configuration
